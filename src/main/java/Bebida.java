@@ -1,6 +1,7 @@
 
 /**
  * Esta clase representa una bebida de la cafetería.
+ *
  * @author María Jesús Ruiz Redondo
  * @version 1.0
  */
@@ -10,10 +11,11 @@ public class Bebida extends Producto {
 
     /**
      * Constructor: Crea una nueva bebida.
-     * @param nombre nombre de la bebida
-     * @param precio precio en euros
+     *
+     * @param nombre    nombre de la bebida
+     * @param precio    precio en euros
      * @param categoria categoría a la que pertenece
-     * @param tamanio tamaño de la bebida (pequeño, mediano, grande)
+     * @param tamanio   tamaño de la bebida (pequeño, mediano, grande)
      */
 
     public Bebida(String nombre, double precio, String categoria, String tamanio) {
@@ -28,13 +30,15 @@ public class Bebida extends Producto {
     public void setTamanio(String tamanio) {
         this.tamanio = tamanio;
     }
+
     /**
      * Devuelve la información de la bebida, incluyendo su tamaño.
+     *
      * @return texto con los datos del producto y el tamaño
      */
 
     @Override
-    public String mostrarInfo(){
+    public String mostrarInfo() {
         return super.mostrarInfo() + " -- Tamaño: " + tamanio;
 
     }

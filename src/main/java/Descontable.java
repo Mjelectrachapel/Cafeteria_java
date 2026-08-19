@@ -1,5 +1,6 @@
 /**
  * Contrato para los productos a los que se les puede aplicar un descuento.
+ *
  * @author María Jesús Ruiz Redondo
  * @version 1.0
  */

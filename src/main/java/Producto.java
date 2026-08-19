@@ -1,5 +1,6 @@
 /**
  * Esta clase representa cualquier producto genérico de la cafetería.
+ *
  * @author María Jesús Ruiz Redondo
  * @version 1.0
  */
@@ -12,8 +13,9 @@ public class Producto implements Descontable {
 
     /**
      * Constructor: Crea un producto nuevo
-     * @param nombre nombre del producto
-     * @param precio precio en euros
+     *
+     * @param nombre    nombre del producto
+     * @param precio    precio en euros
      * @param categoria categoría a la que pertenece
      */
 
@@ -50,14 +52,16 @@ public class Producto implements Descontable {
     }
 
     /**
-     * Devuelve la información del producto por pantalla, para que se pueda leer.
+     * Devuelve la información del producto.
+     *
      * @return texto con nombre, categoría y precio
      */
 
-    public String mostrarInfo(){
+    public String mostrarInfo() {
 
         return nombre + " (" + categoria + ") -- " + precio + " €";
     }
+
     /**
      * Calcula el precio del producto tras aplicar un descuento.
      * Si el porcentaje no está entre 0 y 100 se considera inválido: se muestra
@@ -68,12 +72,12 @@ public class Producto implements Descontable {
      */
     @Override
     public double aplicarDescuento(double porcentaje) {
-        if (porcentaje > 100 || porcentaje < 0){
+        if (porcentaje > 100 || porcentaje < 0) {
             System.out.println("Porcentaje no válido: " + porcentaje + "%. Se mantiene el precio original.");
             return precio;
         }
 
-        return precio - (precio * porcentaje/100);
+        return precio - (precio * porcentaje / 100);
 
     }
 
