@@ -1,5 +1,6 @@
 /**
  * Esta clase representa una comida de la cafetería.
+ *
  * @author María Jesús Ruiz Redondo
  * @version 1.0
  */
