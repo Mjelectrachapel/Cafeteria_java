@@ -4,7 +4,7 @@
  * @version 1.0
  */
 
-public class Producto {
+public class Producto implements Descontable {
 
     private String nombre;
     private double precio;
@@ -55,7 +55,26 @@ public class Producto {
      */
 
     public String mostrarInfo(){
-        return nombre + "(" + categoria + ") -- " + precio + " €";
+
+        return nombre + " (" + categoria + ") -- " + precio + " €";
+    }
+    /**
+     * Calcula el precio del producto tras aplicar un descuento.
+     * Si el porcentaje no está entre 0 y 100 se considera inválido: se muestra
+     * un aviso por pantalla y se devuelve el precio original sin modificar.
+     *
+     * @param porcentaje porcentaje de descuento a aplicar (de 0 a 100)
+     * @return el precio rebajado, o el precio original si el porcentaje no es válido
+     */
+    @Override
+    public double aplicarDescuento(double porcentaje) {
+        if (porcentaje > 100 || porcentaje < 0){
+            System.out.println("Porcentaje no válido: " + porcentaje + "%. Se mantiene el precio original.");
+            return precio;
+        }
+
+        return precio - (precio * porcentaje/100);
+
     }
 
 }
