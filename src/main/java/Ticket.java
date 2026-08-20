@@ -11,6 +11,7 @@ public class Ticket {
     private Camarero camarero;
     private Producto[] productos;
     private int contadorProductos;
+    private double[] descuentos;
 
     /**
      * Constructor: Crea un ticket nuevo vacío y con capacidad para 10 productos
@@ -23,11 +24,15 @@ public class Ticket {
         this.camarero = camarero;
         this.productos = new Producto[10];
         this.contadorProductos = 0;
+        this.descuentos = new double[productos.length];
+
 
     }
 
     /**
      * Añade un producto al ticket, en la primera posición libre del array.
+     * El producto entra sin aplicar ningún descuento, para rebajarlo hay que usar
+     * * {@link #aplicarDescuentoProducto(Producto, double)}.
      * Si el ticket ya ha alcanzado su capacidad máxima el producto no se añade
      * y se muestra un aviso por pantalla.
      *
@@ -37,6 +42,7 @@ public class Ticket {
     public void agregarProducto(Producto producto) {
         if (contadorProductos < productos.length) {
             productos[contadorProductos] = producto;
+            descuentos[contadorProductos] = 0;
             contadorProductos += 1;
         } else {
             System.out.println("Ha introducido demasiados productos para este ticket.");
@@ -45,14 +51,38 @@ public class Ticket {
     }
 
     /**
-     * Calcula el importe total del ticket sumando el precio de todos los productos.
+     * Aplica un porcentaje de descuento a un producto concreto del ticket.
+     * El precio del producto no se modifica: el descuento queda registrado en el
+     * ticket y se refleja al calcular el total. Si el producto no forma parte del
+     * ticket se muestra un aviso y no se aplica nada.
      *
-     * @return la suma de los precios de los productos añadidos, o 0 si el ticket está vacío
+     * @param producto   producto del ticket al que se le aplica el descuento
+     * @param porcentaje porcentaje de descuento a aplicar (de 0 a 100)
      */
+
+    public void aplicarDescuentoProducto(Producto producto, double porcentaje) {
+        for (int i = 0; i < contadorProductos; i++) {
+            if (productos[i] == producto) {
+                descuentos[i] = porcentaje;
+            }
+            return;
+
+        }
+        System.out.println("El producto indicado no está en el ticket");
+    }
+
+    /**
+     * Calcula el importe total del ticket, aplicando a cada producto el descuento
+     * que tenga registrado en este ticket.
+     *
+     * @return la suma de los precios ya rebajados, o 0 si el ticket está vacío
+     */
+
     public double calcularTotal() {
         double total = 0;
         for (int i = 0; i < contadorProductos; i++) {
-            total += productos[i].getPrecio();
+
+            total += productos[i].aplicarDescuento(descuentos[i]);
 
         }
 
@@ -72,7 +102,14 @@ public class Ticket {
         texto += "Consumición:\n";
 
         for (int i = 0; i < contadorProductos; i++) {
-            texto += (i + 1) + ". " + productos[i].mostrarInfo() + "\n";
+            texto += (i + 1) + ". " + productos[i].mostrarInfo();
+
+            if (descuentos[i] > 0){
+                texto += " -- Descuento " + String.format("%.0f", descuentos[i]) + "% -> "
+                        + String.format("%.2f", productos[i].aplicarDescuento(descuentos[i])) + " €";
+
+            }
+            texto += "\n";
         }
         texto += "\nTotal: " + String.format("%.2f", calcularTotal()) + " €";
 

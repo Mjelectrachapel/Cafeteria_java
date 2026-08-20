@@ -9,15 +9,17 @@ public class Main {
         ticket1.agregarProducto(cafe);
         ticket1.agregarProducto(zumo);
         ticket1.agregarProducto(bocadillo);
+        int porcentajeDescuento = 10;
+
+        ticket1.aplicarDescuentoProducto(cafe, porcentajeDescuento);
+
         System.out.println(ticket1.mostrarTicket());
 
         Descontable cafeDescontable = cafe;
-        int porcentajeDescuento = 10;
-        double precioFinal = cafeDescontable.aplicarDescuento(porcentajeDescuento);
+        double ahorro = cafe.getPrecio() - cafeDescontable.aplicarDescuento(porcentajeDescuento);
 
-        System.out.println("Descuento aplicado al " + cafe.getNombre() + ": " + porcentajeDescuento + "%");
-        System.out.println("Precio original: " + String.format("%.2f", cafe.getPrecio()) + " €");
-        System.out.println("Precio final: " + String.format("%.2f", precioFinal) + " €");
+        System.out.println("\nSe ha ahorrado " + String.format("%.2f", ahorro)
+                + " € en el " + cafe.getNombre() + ".");
 
 
     }
