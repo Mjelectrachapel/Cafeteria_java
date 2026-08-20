@@ -59,7 +59,7 @@ public class Producto implements Descontable {
 
     public String mostrarInfo() {
 
-        return nombre + " (" + categoria + ") -- " + precio + " €";
+        return nombre + " (" + categoria + ") -- " + String.format("%.2f",precio) + " €";
     }
 
     /**

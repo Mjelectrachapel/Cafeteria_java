@@ -74,7 +74,7 @@ public class Ticket {
         for (int i = 0; i < contadorProductos; i++) {
             texto += (i + 1) + ". " + productos[i].mostrarInfo() + "\n";
         }
-        texto += "\nTotal: " + calcularTotal() + " €";
+        texto += "\nTotal: " + String.format("%.2f", calcularTotal()) + " €";
 
         return texto;
     }
