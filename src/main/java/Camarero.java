@@ -22,20 +22,35 @@ public class Camarero {
         this.codigoEmpleado = codigoEmpleado;
     }
 
-    //Getters y setters
 
+    /**
+     * Devuelve el nombre del camarero.
+     * @return el nombre del camarero
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Cambia el nombre del camarero.
+     * @param nombre el nombre nuevo del camarero
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * Cambia el código del empleado.
+     * @param codigoEmpleado nuevo código del empleado
+     */
     public void setCodigoEmpleado(String codigoEmpleado) {
         this.codigoEmpleado = codigoEmpleado;
     }
 
+    /**
+     * Devuelve el código del empleado
+     * @return código del empleado
+     */
     public String getCodigoEmpleado() {
         return codigoEmpleado;
     }

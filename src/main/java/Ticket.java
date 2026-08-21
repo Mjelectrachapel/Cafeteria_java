@@ -34,7 +34,7 @@ public class Ticket {
      * El producto entra sin aplicar ningún descuento, para rebajarlo hay que usar
      * * {@link #aplicarDescuentoProducto(Producto, double)}.
      * Si el ticket ya ha alcanzado su capacidad máxima el producto no se añade
-     * y se muestra un aviso por pantalla.
+     * y genera un aviso.
      *
      * @param producto producto que se quiere añadir; puede ser cualquier subclase
      *                 de Producto, como Bebida o Comida
@@ -91,6 +91,8 @@ public class Ticket {
 
     /**
      * Genera el detalle completo del ticket: cliente, camarero, productos y total.
+     * Los productos que tengan un descuento registrado muestran además el porcentaje
+     * de descuento y su precio una vez rebajado.
      *
      * @return texto del ticket listo para imprimir
      */
@@ -104,7 +106,7 @@ public class Ticket {
         for (int i = 0; i < contadorProductos; i++) {
             texto += (i + 1) + ". " + productos[i].mostrarInfo();
 
-            if (descuentos[i] > 0){
+            if (descuentos[i] > 0) {
                 texto += " -- Descuento " + String.format("%.0f", descuentos[i]) + "% -> "
                         + String.format("%.2f", productos[i].aplicarDescuento(descuentos[i])) + " €";
 
