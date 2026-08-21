@@ -24,21 +24,34 @@ public class Comida extends Producto {
         this.racion = racion;
     }
 
-    // Getters y setters
-
-
+    /**
+     * Devuelve si la comida se sirve caliente.
+     *
+     * @return {@code true} si es caliente, {@code false} si es fría
+     */
     public boolean isEsCaliente() {
         return esCaliente;
     }
 
+    /**
+     * Devuelve si la comida se sirve caliente.
+     *
+     * @param esCaliente {@code true} si es caliente, {@code false} si es fría
+     */
     public void setEsCaliente(boolean esCaliente) {
         this.esCaliente = esCaliente;
     }
-
+    /**
+     * Devuelve el tamaño de la ración.
+     * @return el tamaño de la ración (tapa, media ración, entera)
+     */
     public String getRacion() {
         return racion;
     }
-
+    /**
+     * Cambia el tamaño de la ración.
+     * @param racion el nuevo tamaño de la ración (tapa, media ración, entera)
+     */
     public void setRacion(String racion) {
         this.racion = racion;
     }
