@@ -24,29 +24,57 @@ public class Producto implements Descontable {
         this.precio = precio;
         this.categoria = categoria;
     }
-    //Getters y setters
 
-
+    /**
+     * Devuelve el nombre del producto.
+     *
+     * @return el nombre del producto
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Cambia el nombre del producto.
+     *
+     * @param nombre el nuevo nombre del producto
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * Devuelve el precio del producto.
+     *
+     * @return el precio en euros
+     */
     public double getPrecio() {
         return precio;
     }
 
+    /**
+     * Cambia el precio del producto.
+     *
+     * @param precio el nuevo precio en euros
+     */
     public void setPrecio(double precio) {
         this.precio = precio;
     }
 
+    /**
+     * Devuelve la categoría del producto.
+     *
+     * @return la categoría a la que pertenece el producto
+     */
     public String getCategoria() {
         return categoria;
     }
 
+    /**
+     * Cambia la categoría del producto.
+     *
+     * @param categoria la nueva categoría del producto
+     */
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
@@ -59,13 +87,13 @@ public class Producto implements Descontable {
 
     public String mostrarInfo() {
 
-        return nombre + " (" + categoria + ") -- " + String.format("%.2f",precio) + " €";
+        return nombre + " (" + categoria + ") -- " + String.format("%.2f", precio) + " €";
     }
 
     /**
      * Calcula el precio del producto tras aplicar un descuento.
-     * Si el porcentaje no está entre 0 y 100 se considera inválido: se muestra
-     * un aviso por pantalla y se devuelve el precio original sin modificar.
+     * Si el porcentaje no está entre 0 y 100 se considera inválido: genera
+     * un aviso y devuelve el precio original sin modificar.
      *
      * @param porcentaje porcentaje de descuento a aplicar (de 0 a 100)
      * @return el precio rebajado, o el precio original si el porcentaje no es válido

@@ -1,4 +1,18 @@
+
+/**
+ * Punto de entrada de la aplicación. Crea un ticket de ejemplo con un cliente,
+ * un camarero y varios productos, le aplica un descuento y lo muestra por pantalla.
+ *
+ * @author María Jesús Ruiz Redondo
+ * @version 1.0
+ */
+
 public class Main {
+    /**
+     * Ejecuta el programa de demostración de la cafetería.
+     *
+     * @param args argumentos de línea de comandos; no se utilizan
+     */
     public static void main(String[] args) {
         Cliente cliente1 = new Cliente("Ana López", "652345678");
         Camarero camarero1 = new Camarero("Carlos", "C01");
